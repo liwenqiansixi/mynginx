@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    li {
+
+        list-style: none;
+    }
+
+    .tabdown {
+        background: rgba(254, 253, 252, 1);
+        /*padding: .4rem 0;*/
+        border-top: 1px solid #F6F6F9;
+    }
+
+    .tabdown ul {
+        height: 100%;
+        flex-wrap: nowrap;
+        text-align: center;
+        /*display: -ms-flexsbox;*/
+        display: flex;
+        /*-webkit-box-pack: left;*/
+        /*-webkit-box-align: center;*/
+        -webkit-justify-content: space-around;
+        /*-ms-flex-pack: distribute;*/
+        /*justify-content: space-around;*/
+        /*-webkit-justify-content: space-around;*/
+
+        /*-ms-flex-align: center;*/
+        /*align-items: center;*/
+
+    }
+
+    .tabdown ul li {
+        box-sizing: border-box;
+        display: inline-block;
+        width:19%;
+        /*display: -webkit-box;*/
+        /*-webkit-box-orient: vertical; !*排列方式flex-direction: column*!*/
+        /*　　-webkit-box-pack: justify; !*box2的纵向排列方式 justify-content: space-between;*!*/
+        -webkit-box-flex: 1; /*box2的伸缩比例 flex:auto;*/
+    }
+
+    /*.tabdown ul li a {*/
+        /*position: absolute;*/
+        /*left: 0;*/
+        /*top: 0;*/
+        /*bottom: 0;*/
+        /*right: 0;*/
+    /*}*/
+
+    .tabdown ul li i {
+        display: block;
+        background: url(http://test.dscmall.cn/mobile/statics/img/ec-icon.png) no-repeat;
+        width: 2.7rem;
+        height: 2.7rem;
+        /*display: block;*/
+        margin: 0 auto;
+        background-size: 32.1rem;
+    }
+
+    .tabdown ul li span {
+        font-size: 1.1rem;
+    }
+
+    .tabdown ul li.home i {
+        background-position-x: .2rem;
+    }
+
+    .tabdown ul li.categroy i {
+        background-position-x: -2.7rem;
+    }
+
+    .tabdown ul li.search i {
+        background-position-x: -14.1rem
+    }
+
+    .tabdown ul li.cart i {
+        background-position-x: -5.7rem;
+    }
+
+    .tabdown ul li.me i {
+        background-position-x: -8.3rem;
+    }
+
+    .tabdown ul li.active i {
+        background-position-y: -2.8rem;
+    }
+
+    .tabdown.tabdown-fixed {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 111
+    }
+
+    body.mbtn {
+        /*padding-bottom: 5rem;*/
+    }
+
+</style>
+<body>
+<div class="tabdown tabdown-fixed">
+    <button onclick="postng()">点击</button>
+    <ul>
+        <li class="home active"><a href=""></a> <i></i> <span>首页</span></li>
+        <li class="categroy"><a href=""></a> <i></i> <span>分类</span></li>
+        <li class="search"><a href=""></a> <i></i> <span>搜索</span></li>
+        <li class="cart"><a href=""></a> <i></i> <span>购物车</span></li>
+        <li class="me"><a href=""></a> <i></i> <span>我</span></li>
+    </ul>
+</div>
+<script src="./jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+   function postng(){
+       $.ajax({
+           url:"./partners/store.json",
+           type:'GET',
+           data:{},
+           success:function(data){
+             console.log(data);
+           },
+           error:function(error){
+
+           }
+       })
+   }
+</script>
+</body>
+</html>
